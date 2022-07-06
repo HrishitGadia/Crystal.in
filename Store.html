@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crystal</title>
+
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+    <!--Firebase-->
+    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <!--Files-->
+    <link rel="stylesheet" href="Store.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="Home.html">Home</a></li>
+
+                    <li><a href="Store.html">Store</a></li>
+                    <li><a href="#"><i class="bi bi-bag"></i> Bag</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="Service.html"><i class="bi bi-headset"></i> Service</a></li>
+                    <li><a href="SignIn.html" id="statust"><span class="glyphicon glyphicon-log-in"></span>
+                            Sign Up</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <center>
+        <div id="products">
+        </div>
+    </center>
+    <center>
+        <div id="container">
+            <div class="box one">
+                <div class="details">
+                    <div class="topic">Description</div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque consequatur corporis vitae
+                        nobis, ut
+                        veniam earum expedita eaque at placeat perferendis unde voluptates explicabo rerum distinctio
+                        quis,
+                        illo, porro et?</p>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="price-box">
+                        <div class="discount">$1800.00</div>
+                        <div class="price">$1500.00</div>
+                    </div>
+                </div>
+                <div class="button1">
+                    <button>Add To Cart</button>
+                </div>
+            </div>
+            <div class="box two">
+                <div class="image-box">
+                    <div class="image">
+                        <img src="" alt="">
+                    </div>
+                    <div class="info">
+                        <div class="brand">SONY</div>
+                        <div class="name">SONY ALPHA A7 KIT</div>
+                        <div class="shipping">FREE SHIPPING</div>
+                        <div class="button2">
+                            <button>Login For More</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </center>
+    <script src="Store.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,355 @@
+/* Google Fonts Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+    font-family: 'Comfortaa', cursive !important;
+    font-size: 14px !important;
+    cursor: default !important;
+}
+
+.product-card {
+  position: relative;
+  max-width: 355px;
+  width: 100%;
+  border-radius: 25px;
+  padding: 20px 30px 30px 30px;
+  background: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  z-index: 3;
+  overflow: hidden;
+  display: inline-block !important;
+  margin: 2%
+
+}
+.product-card .logo-cart{
+  display: in;
+  align-items: center;
+  justify-content: space-between;
+}
+.product-card .logo-cart img{
+  height: 60px;
+  width: 60px;
+  object-fit: cover;
+}
+.product-card .logo-cart i{
+  font-size: 27px;
+  color: #707070;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+.product-card .logo-cart i:hover{
+  color: #333;
+}
+.product-card .main-images{
+  position: relative;
+  height: 210px;
+}
+.product-card .main-images img{
+  position: absolute;
+  height: 300px;
+  width: 300px;
+  object-fit: cover;
+  transform: rotate(18deg);
+  left: 12px;
+  top: -40px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.product-card .main-images img.active{
+  opacity: 1;
+}
+.product-card .shoe-details .shoe_name{
+  font-size: 24px;
+  font-weight: 500;
+  color: #161616;
+}
+.product-card .shoe-details p{
+  font-size: 12px;
+  font-weight: 400;
+  color: #333;
+  text-align: justify;
+}
+.product-card .shoe-details .stars i{
+  margin: 0 -1px;
+  color: #333;
+}
+.product-card .color-price .color-option{
+  display: flex;
+  align-items: center;
+}
+.color-price{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+.color-price .color-option .color{
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+  margin-right: 8px;
+}
+.color-option  .circles{
+  display: flex;
+}
+.color-option  .circles .circle{
+  height: 18px;
+  width: 18px;
+  background: #0071C7;
+  border-radius: 50%;
+  margin: 0 4px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+.color-option  .circles .circle.Blue.active{
+  box-shadow: 0 0 0 2px #fff,
+               0 0 0 4px #0071C7;
+}
+.color-option  .circles .circle.Pink{
+  background: #FA1795;
+}
+.color-option  .circles .circle.Pink.active{
+  box-shadow: 0 0 0 2px #fff,
+               0 0 0 4px #FA1795;
+}
+.color-option  .circles .circle.White{
+  background: white;
+  border: #000 solid 1px;
+}
+.color-option  .circles .circle.White.active{
+  box-shadow: 0 0 0 2px black,
+               0 0 0 4px white;
+}
+.color-option  .circles .circle.LightBlue{
+  background: lightblue;
+}
+.color-option  .circles .circle.LightBlue.active{
+  box-shadow: 0 0 0 2px #fff,
+               0 0 0 4px lightblue;
+}
+.color-option  .circles .circle.DarkBlue{
+  background: darkblue;
+}
+.color-option  .circles .circle.DarkBlue.active{
+  box-shadow: 0 0 0 2px #fff,
+               0 0 0 4px darkblue;
+}
+.color-option  .circles .circle.Cyan{
+  background: cyan;
+}
+.color-option  .circles .circle.Cyan.active{
+  box-shadow: 0 0 0 2px #fff,
+               0 0 0 4px cyan;
+}
+.color-option  .circles .circle.Yellow{
+  background: #F5DA00;
+}
+.color-option  .circles .circle.Yellow.active{
+  box-shadow: 0 0 0 2px #fff,
+               0 0 0 4px #F5DA00;
+}
+.color-price .price{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.color-price .price .price_num{
+  font-size: 25px;
+  font-weight: 600;
+  color: #707070;
+}
+.color-price .price .price_letter{
+  font-size: 10px;
+  font-weight: 600;
+  margin-top: -4px;
+  color: #707070;
+}
+.product-card .button{
+  position: relative;
+  height: 50px;
+  width: 100%;
+  border-radius: 25px;
+  margin-top: 30px;
+  overflow: hidden;
+}
+.product-card .button .button-layer{
+  position: absolute;
+  height: 100%;
+  width: 300%;
+  left: -100%;
+  background-image: linear-gradient(135deg,#9708CC, #43CBFF,#9708CC, #43CBFF );
+  transition: all 0.4s ease;
+  border-radius: 25PX;
+}
+.product-card .button:hover .button-layer{
+  left: 0;
+}
+.product-card .button button{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background: none;
+  outline: none;
+  border: none;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #fff;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins',sans-serif;
+}
+::selection{
+  background: #fee6eb;
+}
+
+body{
+  width: 100%;
+}
+body:before{
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  clip-path: circle(55% at right 30%);
+}
+#container{
+  display: none;
+  max-width: 750px;
+  background: #fff;
+  border-radius: 12px;
+  justify-content: space-between;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+.container::before{
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 12px;
+  clip-path: circle(65% at right 35%);
+  background-image: linear-gradient( 135deg,  #fd9bb0 10%, #F6416C 100%);
+}
+.container .box.one{
+  padding: 35px 5px 0px 35px;
+}
+.box.one .details .topic{
+  font-size: 30px;
+  font-weight: 500;
+}
+.box.one .details p{
+  color: #737373;
+  font-size: 13px;
+  font-weight: 500;
+}
+.box.one .rating{
+  color: #fd9bb0;
+  font-size: 14px;
+  margin-top: 10px;
+}
+.box.one .price-box{
+  margin-top: 16px;
+}
+.box.one .discount{
+  font-size: 20px;
+  margin: 10px 0 0 12px;
+  position: relative;
+  color: #737373;
+}
+.box.one .discount:before{
+  content: '';
+  position: absolute;
+  height: 1px;
+  width: 100px;
+  background: #737373;
+  top: 50%;
+  left: -8px;
+}
+.box.one .price{
+  color: #fc6989;
+  font-size: 30px;
+}
+.box.one .button1{
+  margin-top: 55px;
+}
+.box.one .button1 button{
+  outline: none;
+  border:none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #fff;
+  background: #00e6e6;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.button1 button:hover{
+  transform: scale(0.98);
+}
+.container .box.two .image{
+  position: relative;
+  right: 0;
+  top: 0;
+  height: 340px;
+  width: 430px;
+}
+.image img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.container .box.two .image-box{
+  position: relative;
+  text-align: right;
+  right: 0;
+  bottom: 27px;
+}
+.box.two .image-box .info{
+  margin: 0 35px 0 0;
+}
+.box.two .info .brand{
+ font-size: 17px;
+ font-weight: 600;
+ color: #c9032e;
+}
+.box.two .info .name{
+ font-size: 20px;
+ font-weight: 500;
+ color: #fff;
+}
+.box.two .info .shipping{
+ font-size: 14px;
+ font-weight: 400;
+ color: #000;
+}
+.box.two .button2{
+  margin: 17px 0;
+}
+.button2 button{
+  outline: none;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 12px;
+  padding: 8px 17px;
+  background: transparent;
+  font-size: 15px;
+  font-weight: 400;
+  cursor: pointer;
+}
