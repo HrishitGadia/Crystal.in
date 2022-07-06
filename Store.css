@@ -144,6 +144,13 @@ body {
 .color-option  .circles .circle.Cyan{
   background: cyan;
 }
+.color-option  .circles .circle.Black.active{
+  box-shadow: 0 0 0 2px #fff,
+               0 0 0 4px black;
+}
+.color-option  .circles .circle.Black{
+  background: black;
+}
 .color-option  .circles .circle.Cyan.active{
   box-shadow: 0 0 0 2px #fff,
                0 0 0 4px cyan;
