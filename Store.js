@@ -102,7 +102,7 @@ function ChangeActive(Object) {
     Color3 = Book + 'C3';
     document.getElementById(Word).classList.remove("active");
     document.getElementById(Chair).classList.add("active");
-    document.getElementById(table).classList.add("active");
+    document.getElementById(table).classList.remove("active");
     document.getElementById(Color1).classList.add("active");
     document.getElementById(Color2).classList.remove("active");
     document.getElementById(Color3).classList.remove("active");
