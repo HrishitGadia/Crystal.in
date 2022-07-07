@@ -360,3 +360,7 @@ body:before{
   font-weight: 400;
   cursor: pointer;
 }
+
+.btnbtn {
+  border-radius : 25px;
+}
