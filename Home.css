@@ -3,3 +3,14 @@ body {
     font-size: 14px !important;
     cursor: default !important;
 }
+
+.Shop {
+    height: 100px;
+    width: 100px;
+    background-color: white;
+    border-radius: 25% !important;
+    border: black solid 2px;
+    margin: 5px;
+    font-size: 100%;
+    color: black;
+}
