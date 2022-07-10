@@ -15,6 +15,7 @@ var database = firebase.database();
 
 //Variables
 var Changer;
+var TStars = ' <i class="bx bxs-star"></i>';
 function getdata() {
   firebase.database().ref("/" + 'Product Information').on('value', function (snapshot) {
     snapshot.forEach(function (childSnapshot) {
@@ -29,34 +30,22 @@ function getdata() {
         PriceAfter = ProductData['PriceAfter'];
         Description = ProductData['Description'];
         Availability = ProductData['Availability'];
+        Total = ProductData['Total'];
+        Logo = ProductData['Logo'];
         Image01 = ProductData['Image01'];
         Image02 = ProductData['Image02'];
         Image03 = ProductData['Image03'];
         Color01 = ProductData['Color01'];
         Color02 = ProductData['Color02'];
         Color03 = ProductData['Color03'];
-        Code = '<div class="product-card"> <div class="logo-cart"> <img src="logo.jpg" alt="logo"> </div> <div class="main-images"> <img id="' + ProductId + 'img1" class="blue active xyz class123" src="' + Image01 + '" alt="blue"> <img id="' + ProductId + 'img2" class="pink xyz class123"" src="' + Image02 + '" alt="pink"> <img id="' + ProductId + 'img3" class="yellow xyz class123" src="' + Image03 + '" alt="yellow"> </div> <br> <div class="shoe-details"> <span class="shoe_name" id="' + ProductId + 'Name">' + Name + '</span> <p id="' + ProductId + 'Des">' + Description + '</p> <div class="stars"> <i class="bx bxs-star"></i> <i class="bx bxs-star"></i> <i class="bx bxs-star"></i> <i class="bx bxs-star"></i> <i class="bx bx-star"></i> </div> </div> <div class="color-price"> <div class="color-option"> <span class="color">Colour:</span> <div class="circles"> <span class=" circle ' + Color01 + ' active" id="' + ProductId + 'C1" onclick="ChangeActive(this.id)"></span> <span class="circle ' + Color02 + '" id="' + ProductId + 'C2" onclick="ChangeActive(this.id)"></span> <span class="circle ' + Color03 + ' " id="' + ProductId + 'C3" onclick="ChangeActive(this.id)"></span> </div> </div> <div class="price"> <span class="price_num" id="' + ProductId + 'PriceNum">' + PriceAfter + '</span> <span class="price_letter" id="' + ProductId + 'PriceLet">' + PriceBefore + ' Only</span> </div> </div> <div class="button"> <div class="button-layer"></div> <button class="btnbtn" onclick="submit(this.id)" id="' + ProductId + '">Add To Bag</button> </div> </div>';
+        Code = '<div class="product-card"> <div class="logo-cart"> </div> <div class="main-images"> <img id="' + ProductId + 'img1" class="blue active xyz class123" src="' + Image01 + '" alt="blue"> <img id="' + ProductId + 'img2" class="pink xyz class123"" src="' + Image02 + '" alt="pink"> <img id="' + ProductId + 'img3" class="yellow xyz class123" src="' + Image03 + '" alt="yellow"></div> <br> <div class="shoe-details"> <span class="shoe_name" id="' + ProductId + 'Name">' + Name + '</span> <p id="' + ProductId + 'Des">' + Description + '</p> <div class="stars">' + TStars.repeat(Stars) + ' </div> </div> <div class="color-price"> <div class="color-option"> <span class="color">Colour:</span> <div class="circles"> <span class=" circle ' + Color01 + ' active" id="' + ProductId + 'C1" onclick="ChangeActive(this.id)"></span> <span class="circle ' + Color02 + '" id="' + ProductId + 'C2" onclick="ChangeActive(this.id)"></span> <span class="circle ' + Color03 + ' " id="' + ProductId + 'C3" onclick="ChangeActive(this.id)"></span></div> </div> <div class="price"> <span class="price_num" id="' + ProductId + 'PriceNum">' + PriceAfter + '</span> <span class="price_letter" id="' + ProductId + 'PriceLet">' + PriceBefore + ' Only</span> </div> </div> <div class="button"> <div class="button-layer"></div> <button class="btnbtn" onclick="submit(this.id)" id="' + ProductId + '">Add To Bag</button> </div> </div>';
         Item = document.getElementById('products').innerHTML;
         document.getElementById('products').innerHTML = Item + Code;
-        console.log(Code)
       }
     });
   });
 }
 getdata();
-/*
-document.querySelectorAll('.color-option').forEach(item => {
-  item.addEventListener('click', (e) => {
-    let target = e.target;
-     if(target.classList.contains("circle")){
-       document.querySelector(".active").classList.remove("active");
-       target.classList.add("active");
-       document.querySelector(".main-images .active").classList.remove("active");
-       document.querySelector(`.main-images .${target.id}`).classList.add("active");
-     }
-  })
-})*/
-
 
 function submit(Element) {
   UserId = Element;

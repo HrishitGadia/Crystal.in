@@ -55,7 +55,6 @@ body {
   height: 300px;
   width: 300px;
   object-fit: cover;
-  transform: rotate(18deg);
   left: 12px;
   top: -40px;
   z-index: -1;
@@ -134,6 +133,20 @@ body {
   box-shadow: 0 0 0 2px #fff,
                0 0 0 4px lightblue;
 }
+.color-option  .circles .circle.Peach{
+  background: peachpuff;
+}
+.color-option  .circles .circle.Peach.active{
+  box-shadow: 0 0 0 2px #fff,
+               0 0 0 4px peachpuff;
+}
+.color-option  .circles .circle.DarkGrey{
+  background: darkgray;
+}
+.color-option  .circles .circle.DarkGrey.active{
+  box-shadow: 0 0 0 2px #fff,
+               0 0 0 4px darkgrey;
+}
 .color-option  .circles .circle.DarkBlue{
   background: darkblue;
 }
@@ -161,6 +174,20 @@ body {
 .color-option  .circles .circle.Yellow.active{
   box-shadow: 0 0 0 2px #fff,
                0 0 0 4px #F5DA00;
+}
+.color-option  .circles .circle.Silver{
+  background: silver;
+}
+.color-option  .circles .circle.Silver.active{
+  box-shadow: 0 0 0 2px #fff,
+               0 0 0 4px silver;
+}
+.color-option  .circles .circle.RoseGold{
+  background: rosybrown;
+}
+.color-option  .circles .circle.RoseGold.active{
+  box-shadow: 0 0 0 2px #fff,
+               0 0 0 4px rosybrown;
 }
 .color-price .price{
   display: flex;
