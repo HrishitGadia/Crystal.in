@@ -5,29 +5,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crystal</title>
 
-    <!--Bootstrap-->
+    <!--Css-->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Crystal</title>
+    <link rel="stylesheet" href="Home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
-    <!--Firebase-->
-    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
-    <!--Google Fonts-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
-
-    <!--Files-->
-    <link rel="stylesheet" href="Home.css">
-    <script src="Home.js"></script>
-
 </head>
 
-<body onload="Check()">
+<body>
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -46,47 +40,114 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="Service.html"><i class="bi bi-headset"></i> Service</a></li>
-                    <li><a href="SignIn.html" id="status"><i class="bi bi-box-arrow-in-right"></i></span>
+                    <li><a href="SignIn.html" id="status"><span class="glyphicon glyphicon-log-in"></span>
                             Sign Up</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-    <section id="About">
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-            </ol>
-            <div class="carousel-inner">
-                <div class="item active">
-                    <img src="Img1.png" alt="Image 01" class="responsive">
-                </div>
 
-                <div class="item">
-                    <img src="Img2.png" alt="Image 02" class="responsive">
+    <!-- Page Content -->
+    <div class="w3-padding-large" id="main">
+        <!-- Header/Home -->
+        <header class="w3-container w3-padding-32 w3-center" id="home">
+            <h1 class="w3-jumbo"><span class="w3-hide-small">I'm</span> Hrishit Gadia.</h1>
+            <p>Student and Web Designer.</p>
+            <img src="profile-img.jpg" alt="boy" class="w3-image" width="992" height="1108">
+        </header>
+
+        <!-- About Section -->
+        <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
+            <h2 class="w3-text-grey">My Name</h2>
+            <hr style="width:200px" class="w3-opacity">
+            <p>I am Hrishit Gadia, Currently Studying in Macro Vision Academy, Burhanpur. During The Lockdown Period I
+                was attached With this Computer World, And Was very curious about its functioning and working. I soon
+                started exploring The web and Started to practice Programming. Even The Schools Books Helped Me,
+                Whenever There was a new chapter, it had some new questions and therefore some new curiosity, while with
+                the help of books I learned Basics and During My Freetime I explored Advanced. And today when I see How
+                far I came, I feel proud of my curiosity and want to learn more. I have Been programming since
+                2020(Covid Pandamic) But it feels I entered the world Today, Everyday there is something new to learn
+                and new to explore
+            </p>
+            <h3 class="w3-padding-16 w3-text-grey">My Skills</h3>
+            <p class="w3-wide">Logical Reasoning</p>
+            <div class="w3-white">
+                <div class="w3-dark-grey" style="height:28px;width:95%"></div>
+            </div>
+            <p class="w3-wide">Web Design</p>
+            <div class="w3-white">
+                <div class="w3-dark-grey" style="height:28px;width:85%"></div>
+            </div>
+            <p class="w3-wide">Photoshop</p>
+            <div class="w3-white">
+                <div class="w3-dark-grey" style="height:28px;width:80%"></div>
+            </div><br>
+
+            <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
+                <div class="w3-quarter w3-section">
+                    <span class="w3-xlarge">55+</span><br>
+                    Projects Done
+                </div>
+                <div class="w3-quarter w3-section">
+                    <span class="w3-xlarge">15+</span><br>
+                    Running NativeApps
+                </div>
+                <div class="w3-quarter w3-section">
+                    <span class="w3-xlarge">80+</span><br>
+                    Running WebApps
+                </div>
+                <div class="w3-quarter w3-section">
+                    <span class="w3-xlarge">1000+</span><br>
+                    Hours Of Programming
                 </div>
             </div>
-            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
-    </section>
-    <section id="Shop">
-        <center>
-            <div id="Links">
-                <a href="Store.html"><button Class="Shop"><i class="bi bi-shop"></i><br>Shop</button></a>
-                <a href="Bag.html"><button Class="Shop"><i class="bi bi-bag"></i><br>Bag</button></a>
-                <a href="Service.html"><button Class="Shop"><i class="bi bi-headset"></i><br>Service</button></a>
-                <a href="SignIn.html"> <button Class="Shop"><i class="bi bi-box-arrow-in-right"></i><br>Sign In</button></a>
+
+            <!-- Portfolio Section -->
+
+            <!-- Contact Section -->
+            <div class="w3-padding-64 w3-content w3-text-grey" id="contact">
+                <h2 class="w3-text-grey">Contact Me</h2>
+                <hr style="width:200px" class="w3-opacity">
+
+                <div class="w3-section">
+                    <p><i class="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Burhanpur, MP</p>
+                    <p><i class="fa fa-phone fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Phone: +91 **********
+                    </p>
+                    <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </i> Email:
+                        mail@mail.com
+                    </p>
+                </div><br>
+                <p>Let's get in touch. Send me a message:</p>
+
+                <form action="/action_page.php" target="_blank">
+                    <p><input class="w3-input w3-padding-16" type="text" placeholder="Name" required name="Name"></p>
+                    <p><input class="w3-input w3-padding-16" type="text" placeholder="Email" required name="Email"></p>
+                    <p><input class="w3-input w3-padding-16" type="text" placeholder="Subject" required name="Subject">
+                    </p>
+                    <p><input class="w3-input w3-padding-16" type="text" placeholder="Message" required name="Message">
+                    </p>
+                    <p>
+                        <button class="w3-button w3-light-grey w3-padding-large" type="submit">
+                            <i class="fa fa-paper-plane"></i> SEND MESSAGE
+                        </button>
+                    </p>
+                </form>
+                <!-- End Contact Section -->
             </div>
-        </center>
-    </section>
+
+            <!-- Footer -->
+            <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
+                <i class="fa fa-facebook-official w3-hover-opacity"></i>
+                <i class="fa fa-instagram w3-hover-opacity"></i>
+                <i class="fa fa-snapchat w3-hover-opacity"></i>
+                <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+                <i class="fa fa-twitter w3-hover-opacity"></i>
+                <i class="fa fa-linkedin w3-hover-opacity"></i>
+                <!-- End footer -->
+            </footer>
+
+            <!-- END PAGE CONTENT -->
+        </div>
 </body>
 
 </html>
