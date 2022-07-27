@@ -4,11 +4,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
 }
 
 body {
-    font-family: 'Comfortaa', cursive !important;
+    font-family: 'Comfortaa', cursive;
     font-size: 14px !important;
     cursor: default !important;
 }
@@ -111,12 +110,26 @@ body {
   box-shadow: 0 0 0 2px #fff,
                0 0 0 4px #0071C7;
 }
+.color-option  .circles .circle.Red{
+  background: red;
+}
+.color-option  .circles .circle.Red.active{
+  box-shadow: 0 0 0 2px #fff,
+               0 0 0 4px red;
+}
 .color-option  .circles .circle.Pink{
   background: #FA1795;
 }
 .color-option  .circles .circle.Pink.active{
   box-shadow: 0 0 0 2px #fff,
                0 0 0 4px #FA1795;
+}
+.color-option  .circles .circle.Blue{
+  background: blue;
+}
+.color-option  .circles .circle.Blue.active{
+  box-shadow: 0 0 0 2px #fff,
+               0 0 0 4px blue;
 }
 .color-option  .circles .circle.LightGrey{
   background: lightgrey;
@@ -203,6 +216,22 @@ body {
   box-shadow: 0 0 0 2px #fff,
                0 0 0 4px rosybrown;
 }
+.color-option  .circles .circle.Gold{
+  background: gold;
+}
+.color-option  .circles .circle.Gold.active{
+  box-shadow: 0 0 0 2px #fff,
+               0 0 0 4px gold;
+}
+.color-option  .circles .circle.Grey{
+  background: Grey;
+}
+.color-option  .circles .circle.Grey.active{
+  box-shadow: 0 0 0 2px #fff,
+               0 0 0 4px grey;
+}
+
+
 .color-price .price{
   display: flex;
   flex-direction: column;
@@ -273,7 +302,6 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins',sans-serif;
 }
 ::selection{
   background: #fee6eb;
@@ -286,6 +314,7 @@ body:before{
   clip-path: circle(55% at right 30%);
 }
 .container{
+  font-family: 'Poppins',sans-serif;
   display: none;
   max-width: 750px;
   background: #fff;

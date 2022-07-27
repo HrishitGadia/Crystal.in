@@ -16,6 +16,7 @@ var database = firebase.database();
 //Variables
 var Changer;
 var Id = localStorage.getItem('UserId');
+var Quantity = 0;
 var TStars = ' <i class="bx bxs-star"></i>';
 function getdata() {
   firebase.database().ref('users/' + Id + '/User Cart').on('value', function (snapshot) {
@@ -43,7 +44,7 @@ function getdata() {
         Item = document.getElementById('hoverer').innerHTML;
         document.getElementById('hoverer').innerHTML = Item + Program;
 
-        Code = '<div class="product-card"> <div class="logo-cart"> <button class="noner" id="' + ProductId + 'Show" onclick = "View(this.id)"><i class="bi bi-bag"></i> View Product</button></div> <div class="main-images"> <img id="' + ProductId + 'img1" class="blue active xyz class123" src="' + Image01 + '" alt="blue"> <img id="' + ProductId + 'img2" class="pink xyz class123"" src="' + Image02 + '" alt="pink"> <img id="' + ProductId + 'img3" class="yellow xyz class123" src="' + Image03 + '" alt="yellow"></div> <br> <div class="shoe-details"> <span class="shoe_name" id="' + ProductId + 'Name">' + Name + '</span> <p id="' + ProductId + 'Des">' + Description + '</p> <div class="stars">' + TStars.repeat(Stars) + ' </div> </div> <div class="color-price"> <div class="color-option"> <span class="color">Colour:</span> <div class="circles"> <span class=" circle ' + Color01 + ' active" id="' + ProductId + 'C1" onclick="ChangeActive(this.id)"></span> <span class="circle ' + Color02 + '" id="' + ProductId + 'C2" onclick="ChangeActive(this.id)"></span> <span class="circle ' + Color03 + ' " id="' + ProductId + 'C3" onclick="ChangeActive(this.id)"></span></div> </div> <div class="price"> <span class="price_num" id="' + ProductId + 'PriceNum">' + PriceAfter + '</span> <span class="price_letter" id="' + ProductId + 'PriceLet">' + PriceBefore + ' Only</span> </div> </div> <div class="button"> <div class="button-layer"></div> <button class="btnbtn" onclick="submit(this.id)" id="' + ProductId + '">Remove From Bag</button> </div> </div>';
+        Code = '<div class="product-card"> <div class="logo-cart"> <button class="noner" id="' + ProductId + 'Show" onclick = "View(this.id)"><i class="bi bi-bag"></i> View Product</button></div> <div class="main-images"> <img id="' + ProductId + 'img1" class="blue active xyz class123" src="' + Image01 + '" alt="blue"> <img id="' + ProductId + 'img2" class="pink xyz class123"" src="' + Image02 + '" alt="pink"> <img id="' + ProductId + 'img3" class="yellow xyz class123" src="' + Image03 + '" alt="yellow"></div> <br> <div class="shoe-details"> <span class="shoe_name" id="' + ProductId + 'Name">' + Name + '</span> <p id="' + ProductId + 'Des">' + Description + '</p> <div class="stars">' + TStars.repeat(Stars) + ' </div> </div> <div class="color-price"> <div class="color-option"> <span class="color">Colour:</span> <div class="circles"> <span class=" circle ' + Color01 + ' active" id="' + ProductId + 'C1" onclick="ChangeActive(this.id)"></span> <span class="circle ' + Color02 + '" id="' + ProductId + 'C2" onclick="ChangeActive(this.id)"></span> <span class="circle ' + Color03 + ' " id="' + ProductId + 'C3" onclick="ChangeActive(this.id)"></span></div> </div> <div class="price"> <span class="price_num" id="' + ProductId + 'PriceNum">' + PriceAfter + '</span> <span class="price_letter" id="' + ProductId + 'PriceLet">' + PriceBefore + ' Only</span> </div> </div> <div class="button"> <div class="button-layer"></div> <button class="btnbtn" onclick="submit(this.id)" id="' + ProductId + '">Remove From Bag</button> </div><div class="button"> <div class="button-layer"></div> <button class="btnbtn" onclick="Switch()" id="' + ProductId + '">Checkout</button> </div> </div>';
         Item = document.getElementById('products').innerHTML;
         document.getElementById('products').innerHTML = Item + Code;
       }
@@ -117,4 +118,16 @@ function Close(Element) {
   UserItem = Element + 'bout';
   document.getElementById('products').style.display = "block";
   document.getElementById(UserItem).classList.remove("show");
+}
+function Switch(){
+  window.location = 'Payment.html';
+}
+function Logout(){
+  firebase.auth().signOut().then(() => {
+    window.alert('User Signed Out');
+    localStorage.setItem('UserId',"null");
+    localStorage.setItem('status',"Logged Out");
+  }).catch((error) => {
+    window.alert(error);
+  });
 }
