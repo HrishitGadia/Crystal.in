@@ -19,7 +19,7 @@ var TStars = ' <i class="bx bxs-star"></i>';
 var Id = localStorage.getItem('UserId');
 var Categories = [];
 function getdata() {
-  Categories = ['','Footware'];
+  Categories = ['', 'Footware'];
   firebase.database().ref(`/Products/`).on('value', function (snapshot) {
     snapshot.forEach(function (childSnapshot) {
       childKey = childSnapshot.key;
@@ -34,131 +34,139 @@ function getdata() {
   getdata2(Categories[1])
 }
 function getdata2() {
-    firebase.database().ref(`/Products/Footware`).on('value', function (snapshot) {
-      snapshot.forEach(function (childSnapshot) {
-        childKey = childSnapshot.key;
-        childData = childSnapshot.val();
-        if (childKey != "Catagories") {
-          ProductId = childKey;
-          ProductData = childData;
-          Stars = ProductData['Stars'];
-          Name = ProductData['Name'];
-          PriceBefore = ProductData['PriceBefore'];
-          PriceAfter = ProductData['PriceAfter'];
-          Description = ProductData['Description'];
-          Availability = ProductData['Availability'];
-          Total = ProductData['Total'];
-          Logo = ProductData['Logo'];
-          Image01 = ProductData['Image01'];
-          Image02 = ProductData['Image02'];
-          Image03 = ProductData['Image03'];
-          Color01 = ProductData['Color01'];
-          Color02 = ProductData['Color02'];
-          Color03 = ProductData['Color03'];
-          Program = ' <div class="container" id="' + ProductId + 'ShowAbout"><button class="noner" id="' + ProductId + 'ShowA" onclick = "Close(this.id)"><i class="bi bi-x-lg"></i></button><div class="box one"> <div class="details"> <div class="topic">Description</div> <p>' + Description + '</p> <div class="rating">' + TStars.repeat(Stars) + '</div> <div class="price-box"> <div class="price">' + PriceAfter + '</div> </div> </div> <div class="button1"> <button onclick="submit(this.id)" id="' + ProductId + '">Add To Bag</button> </div> </div> <div class="box two"> <div class="image-box"> <div class="image"> <img src="' + Image01 + '" alt=""> </div> <div class="info"> <div class="name">' + Name + '</div> <div class="shipping">FREE SHIPPING</div> </div> </div> </div> </div>'
-          Item = document.getElementById('hoverer').innerHTML;
-          document.getElementById('hoverer').innerHTML = Item + Program;
+  firebase.database().ref(`/Products/Footware`).on('value', function (snapshot) {
+    snapshot.forEach(function (childSnapshot) {
+      childKey = childSnapshot.key;
+      childData = childSnapshot.val();
+      if (childKey != "Catagories") {
+        ProductId = childKey;
+        ProductData = childData;
+        Stars = ProductData['Stars'];
+        Name = ProductData['Name'];
+        PriceBefore = ProductData['PriceBefore'];
+        PriceAfter = ProductData['PriceAfter'];
+        Description = ProductData['Description'];
+        Availability = ProductData['Availability'];
+        Total = ProductData['Total'];
+        Logo = ProductData['Logo'];
+        Image01 = ProductData['Image01'];
+        Image02 = ProductData['Image02'];
+        Image03 = ProductData['Image03'];
+        Color01 = ProductData['Color01'];
+        Color02 = ProductData['Color02'];
+        Color03 = ProductData['Color03'];
+        Short = Description.substring(0, 250);
+        Short = Short + '.......'
+        Program = ' <div class="container" id="' + ProductId + 'ShowAbout"><button class="noner" id="' + ProductId + 'ShowA" onclick = "Close(this.id)"><i class="bi bi-x-lg"></i></button><div class="box one"> <div class="details"> <div class="topic">Description</div> <p>' + Description + '</p> <div class="rating">' + TStars.repeat(Stars) + '</div> <div class="price-box"> <div class="price">' + PriceAfter + '</div> </div> </div> <div class="button1"> <button onclick="submit(this.id)" id="' + ProductId + '">Add To Bag</button> </div> </div> <div class="box two"> <div class="image-box"> <div class="image"> <img src="' + Image01 + '" alt=""> </div> <div class="info"> <div class="name">' + Name + '</div> <div class="shipping">FREE SHIPPING</div> </div> </div> </div> </div>'
+        Item = document.getElementById('hoverer').innerHTML;
+        document.getElementById('hoverer').innerHTML = Item + Program;
 
-          Code = '<div class="product-card"> <div class="logo-cart"> <button class="noner" id="' + ProductId + 'Show" onclick = "View(this.id)"><i class="bi bi-bag"></i> View Product</button></div> <div class="main-images"> <img id="' + ProductId + 'img1" class="blue active xyz class123" src="' + Image01 + '" alt="blue"> <img id="' + ProductId + 'img2" class="pink xyz class123"" src="' + Image02 + '" alt="pink"> <img id="' + ProductId + 'img3" class="yellow xyz class123" src="' + Image03 + '" alt="yellow"></div> <br> <div class="shoe-details"> <span class="shoe_name" id="' + ProductId + 'Name">' + Name + '</span> <p id="' + ProductId + 'Des">' + Description + '</p> <div class="stars">' + TStars.repeat(Stars) + ' </div> </div> <div class="color-price"> <div class="color-option"> <span class="color">Colour:</span> <div class="circles"> <span class=" circle ' + Color01 + ' active" id="' + ProductId + 'C1" onclick="ChangeActive(this.id)"></span> <span class="circle ' + Color02 + '" id="' + ProductId + 'C2" onclick="ChangeActive(this.id)"></span> <span class="circle ' + Color03 + ' " id="' + ProductId + 'C3" onclick="ChangeActive(this.id)"></span></div> </div> <div class="price"> <span class="price_num" id="' + ProductId + 'PriceNum">' + PriceAfter + '</span> <span class="price_letter" id="' + ProductId + 'PriceLet">' + PriceBefore + ' Only</span> </div> </div> <div class="button"> <div class="button-layer"></div> <button class="btnbtn" onclick="submit(this.id)" id="' + ProductId + '">Add To Bag</button> </div> </div>';
-          Item = document.getElementById('footware').innerHTML;
-          document.getElementById('footware').innerHTML = Item + Code;
-        }
-      });
+        Code = '<div class="product-card"> <div class="logo-cart"> <button class="noner" id="' + ProductId + 'Show" onclick = "View(this.id)"><i class="bi bi-bag"></i> View Product</button></div> <div class="main-images"> <img id="' + ProductId + 'img1" class="blue active xyz class123" src="' + Image01 + '" alt="blue"> <img id="' + ProductId + 'img2" class="pink xyz class123"" src="' + Image02 + '" alt="pink"> <img id="' + ProductId + 'img3" class="yellow xyz class123" src="' + Image03 + '" alt="yellow"></div> <br> <div class="shoe-details"> <span class="shoe_name" id="' + ProductId + 'Name">' + Name + '</span> <p id="' + ProductId + 'Des">' + Short + '</p> <div class="stars">' + TStars.repeat(Stars) + ' </div> </div> <div class="color-price"> <div class="color-option"> <span class="color">Colour:</span> <div class="circles"> <span class=" circle ' + Color01 + ' active" id="' + ProductId + 'C1" onclick="ChangeActive(this.id)"></span> <span class="circle ' + Color02 + '" id="' + ProductId + 'C2" onclick="ChangeActive(this.id)"></span> <span class="circle ' + Color03 + ' " id="' + ProductId + 'C3" onclick="ChangeActive(this.id)"></span></div> </div> <div class="price"> <span class="price_num" id="' + ProductId + 'PriceNum">' + PriceAfter + '</span> <span class="price_letter" id="' + ProductId + 'PriceLet">' + PriceBefore + ' Only</span> </div> </div> <div class="button"> <div class="button-layer"></div> <button class="btnbtn" onclick="submit(this.id)" id="' + ProductId + '">Add To Bag</button> </div> </div>';
+        Item = document.getElementById('footware').innerHTML;
+        document.getElementById('footware').innerHTML = Item + Code;
+      }
     });
-    firebase.database().ref(`/Products/Technology`).on('value', function (snapshot) {
-      snapshot.forEach(function (childSnapshot) {
-        childKey = childSnapshot.key;
-        childData = childSnapshot.val();
-        if (childKey != "Catagories") {
-          ProductId = childKey;
-          ProductData = childData;
-          Stars = ProductData['Stars'];
-          Name = ProductData['Name'];
-          PriceBefore = ProductData['PriceBefore'];
-          PriceAfter = ProductData['PriceAfter'];
-          Description = ProductData['Description'];
-          Availability = ProductData['Availability'];
-          Total = ProductData['Total'];
-          Logo = ProductData['Logo'];
-          Image01 = ProductData['Image01'];
-          Image02 = ProductData['Image02'];
-          Image03 = ProductData['Image03'];
-          Color01 = ProductData['Color01'];
-          Color02 = ProductData['Color02'];
-          Color03 = ProductData['Color03'];
-          Program = ' <div class="container" id="' + ProductId + 'ShowAbout"><button class="noner" id="' + ProductId + 'ShowA" onclick = "Close(this.id)"><i class="bi bi-x-lg"></i></button><div class="box one"> <div class="details"> <div class="topic">Description</div> <p>' + Description + '</p> <div class="rating">' + TStars.repeat(Stars) + '</div> <div class="price-box"> <div class="price">' + PriceAfter + '</div> </div> </div> <div class="button1"> <button onclick="submit(this.id)" id="' + ProductId + '">Add To Bag</button> </div> </div> <div class="box two"> <div class="image-box"> <div class="image"> <img src="' + Image01 + '" alt=""> </div> <div class="info"> <div class="name">' + Name + '</div> <div class="shipping">FREE SHIPPING</div> </div> </div> </div> </div>'
-          Item = document.getElementById('hoverer').innerHTML;
-          document.getElementById('hoverer').innerHTML = Item + Program;
+  });
+  firebase.database().ref(`/Products/Technology`).on('value', function (snapshot) {
+    snapshot.forEach(function (childSnapshot) {
+      childKey = childSnapshot.key;
+      childData = childSnapshot.val();
+      if (childKey != "Catagories") {
+        ProductId = childKey;
+        ProductData = childData;
+        Stars = ProductData['Stars'];
+        Name = ProductData['Name'];
+        PriceBefore = ProductData['PriceBefore'];
+        PriceAfter = ProductData['PriceAfter'];
+        Description = ProductData['Description'];
+        Availability = ProductData['Availability'];
+        Total = ProductData['Total'];
+        Logo = ProductData['Logo'];
+        Image01 = ProductData['Image01'];
+        Image02 = ProductData['Image02'];
+        Image03 = ProductData['Image03'];
+        Color01 = ProductData['Color01'];
+        Color02 = ProductData['Color02'];
+        Color03 = ProductData['Color03'];
+        Short = Description.substring(0, 250);
+        Short = Short + '.......'
+        Program = ' <div class="container" id="' + ProductId + 'ShowAbout"><button class="noner" id="' + ProductId + 'ShowA" onclick = "Close(this.id)"><i class="bi bi-x-lg"></i></button><div class="box one"> <div class="details"> <div class="topic">Description</div> <p>' + Description + '</p> <div class="rating">' + TStars.repeat(Stars) + '</div> <div class="price-box"> <div class="price">' + PriceAfter + '</div> </div> </div> <div class="button1"> <button onclick="submit(this.id)" id="' + ProductId + '">Add To Bag</button> </div> </div> <div class="box two"> <div class="image-box"> <div class="image"> <img src="' + Image01 + '" alt=""> </div> <div class="info"> <div class="name">' + Name + '</div> <div class="shipping">FREE SHIPPING</div> </div> </div> </div> </div>'
+        Item = document.getElementById('hoverer').innerHTML;
+        document.getElementById('hoverer').innerHTML = Item + Program;
 
-          Code = '<div class="product-card"> <div class="logo-cart"> <button class="noner" id="' + ProductId + 'Show" onclick = "View(this.id)"><i class="bi bi-bag"></i> View Product</button></div> <div class="main-images"> <img id="' + ProductId + 'img1" class="blue active xyz class123" src="' + Image01 + '" alt="blue"> <img id="' + ProductId + 'img2" class="pink xyz class123"" src="' + Image02 + '" alt="pink"> <img id="' + ProductId + 'img3" class="yellow xyz class123" src="' + Image03 + '" alt="yellow"></div> <br> <div class="shoe-details"> <span class="shoe_name" id="' + ProductId + 'Name">' + Name + '</span> <p id="' + ProductId + 'Des">' + Description + '</p> <div class="stars">' + TStars.repeat(Stars) + ' </div> </div> <div class="color-price"> <div class="color-option"> <span class="color">Colour:</span> <div class="circles"> <span class=" circle ' + Color01 + ' active" id="' + ProductId + 'C1" onclick="ChangeActive(this.id)"></span> <span class="circle ' + Color02 + '" id="' + ProductId + 'C2" onclick="ChangeActive(this.id)"></span> <span class="circle ' + Color03 + ' " id="' + ProductId + 'C3" onclick="ChangeActive(this.id)"></span></div> </div> <div class="price"> <span class="price_num" id="' + ProductId + 'PriceNum">' + PriceAfter + '</span> <span class="price_letter" id="' + ProductId + 'PriceLet">' + PriceBefore + ' Only</span> </div> </div> <div class="button"> <div class="button-layer"></div> <button class="btnbtn" onclick="submit(this.id)" id="' + ProductId + '">Add To Bag</button> </div> </div>';
-          Item = document.getElementById('tech').innerHTML;
-          document.getElementById('tech').innerHTML = Item + Code;
-        }
-      });
+        Code = '<div class="product-card"> <div class="logo-cart"> <button class="noner" id="' + ProductId + 'Show" onclick = "View(this.id)"><i class="bi bi-bag"></i> View Product</button></div> <div class="main-images"> <img id="' + ProductId + 'img1" class="blue active xyz class123" src="' + Image01 + '" alt="blue"> <img id="' + ProductId + 'img2" class="pink xyz class123"" src="' + Image02 + '" alt="pink"> <img id="' + ProductId + 'img3" class="yellow xyz class123" src="' + Image03 + '" alt="yellow"></div> <br> <div class="shoe-details"> <span class="shoe_name" id="' + ProductId + 'Name">' + Name + '</span> <p id="' + ProductId + 'Des">' + Short + '</p> <div class="stars">' + TStars.repeat(Stars) + ' </div> </div> <div class="color-price"> <div class="color-option"> <span class="color">Colour:</span> <div class="circles"> <span class=" circle ' + Color01 + ' active" id="' + ProductId + 'C1" onclick="ChangeActive(this.id)"></span> <span class="circle ' + Color02 + '" id="' + ProductId + 'C2" onclick="ChangeActive(this.id)"></span> <span class="circle ' + Color03 + ' " id="' + ProductId + 'C3" onclick="ChangeActive(this.id)"></span></div> </div> <div class="price"> <span class="price_num" id="' + ProductId + 'PriceNum">' + PriceAfter + '</span> <span class="price_letter" id="' + ProductId + 'PriceLet">' + PriceBefore + ' Only</span> </div> </div> <div class="button"> <div class="button-layer"></div> <button class="btnbtn" onclick="submit(this.id)" id="' + ProductId + '">Add To Bag</button> </div> </div>';
+        Item = document.getElementById('tech').innerHTML;
+        document.getElementById('tech').innerHTML = Item + Code;
+      }
     });
-    firebase.database().ref(`/Products/Sports`).on('value', function (snapshot) {
-      snapshot.forEach(function (childSnapshot) {
-        childKey = childSnapshot.key;
-        childData = childSnapshot.val();
-        if (childKey != "Catagories") {
-          ProductId = childKey;
-          ProductData = childData;
-          Stars = ProductData['Stars'];
-          Name = ProductData['Name'];
-          PriceBefore = ProductData['PriceBefore'];
-          PriceAfter = ProductData['PriceAfter'];
-          Description = ProductData['Description'];
-          Availability = ProductData['Availability'];
-          Total = ProductData['Total'];
-          Logo = ProductData['Logo'];
-          Image01 = ProductData['Image01'];
-          Image02 = ProductData['Image02'];
-          Image03 = ProductData['Image03'];
-          Color01 = ProductData['Color01'];
-          Color02 = ProductData['Color02'];
-          Color03 = ProductData['Color03'];
-          Program = ' <div class="container" id="' + ProductId + 'ShowAbout"><button class="noner" id="' + ProductId + 'ShowA" onclick = "Close(this.id)"><i class="bi bi-x-lg"></i></button><div class="box one"> <div class="details"> <div class="topic">Description</div> <p>' + Description + '</p> <div class="rating">' + TStars.repeat(Stars) + '</div> <div class="price-box"> <div class="price">' + PriceAfter + '</div> </div> </div> <div class="button1"> <button onclick="submit(this.id)" id="' + ProductId + '">Add To Bag</button> </div> </div> <div class="box two"> <div class="image-box"> <div class="image"> <img src="' + Image01 + '" alt=""> </div> <div class="info"> <div class="name">' + Name + '</div> <div class="shipping">FREE SHIPPING</div> </div> </div> </div> </div>'
-          Item = document.getElementById('hoverer').innerHTML;
-          document.getElementById('hoverer').innerHTML = Item + Program;
+  });
+  firebase.database().ref(`/Products/Sports`).on('value', function (snapshot) {
+    snapshot.forEach(function (childSnapshot) {
+      childKey = childSnapshot.key;
+      childData = childSnapshot.val();
+      if (childKey != "Catagories") {
+        ProductId = childKey;
+        ProductData = childData;
+        Stars = ProductData['Stars'];
+        Name = ProductData['Name'];
+        PriceBefore = ProductData['PriceBefore'];
+        PriceAfter = ProductData['PriceAfter'];
+        Description = ProductData['Description'];
+        Availability = ProductData['Availability'];
+        Total = ProductData['Total'];
+        Logo = ProductData['Logo'];
+        Image01 = ProductData['Image01'];
+        Image02 = ProductData['Image02'];
+        Image03 = ProductData['Image03'];
+        Color01 = ProductData['Color01'];
+        Color02 = ProductData['Color02'];
+        Color03 = ProductData['Color03'];
+        Short = Description.substring(0, 250);
+        Short = Short + '.......'
+        Program = ' <div class="container" id="' + ProductId + 'ShowAbout"><button class="noner" id="' + ProductId + 'ShowA" onclick = "Close(this.id)"><i class="bi bi-x-lg"></i></button><div class="box one"> <div class="details"> <div class="topic">Description</div> <p>' + Description + '</p> <div class="rating">' + TStars.repeat(Stars) + '</div> <div class="price-box"> <div class="price">' + PriceAfter + '</div> </div> </div> <div class="button1"> <button onclick="submit(this.id)" id="' + ProductId + '">Add To Bag</button> </div> </div> <div class="box two"> <div class="image-box"> <div class="image"> <img src="' + Image01 + '" alt=""> </div> <div class="info"> <div class="name">' + Name + '</div> <div class="shipping">FREE SHIPPING</div> </div> </div> </div> </div>'
+        Item = document.getElementById('hoverer').innerHTML;
+        document.getElementById('hoverer').innerHTML = Item + Program;
 
-          Code = '<div class="product-card"> <div class="logo-cart"> <button class="noner" id="' + ProductId + 'Show" onclick = "View(this.id)"><i class="bi bi-bag"></i> View Product</button></div> <div class="main-images"> <img id="' + ProductId + 'img1" class="blue active xyz class123" src="' + Image01 + '" alt="blue"> <img id="' + ProductId + 'img2" class="pink xyz class123"" src="' + Image02 + '" alt="pink"> <img id="' + ProductId + 'img3" class="yellow xyz class123" src="' + Image03 + '" alt="yellow"></div> <br> <div class="shoe-details"> <span class="shoe_name" id="' + ProductId + 'Name">' + Name + '</span> <p id="' + ProductId + 'Des">' + Description + '</p> <div class="stars">' + TStars.repeat(Stars) + ' </div> </div> <div class="color-price"> <div class="color-option"> <span class="color">Colour:</span> <div class="circles"> <span class=" circle ' + Color01 + ' active" id="' + ProductId + 'C1" onclick="ChangeActive(this.id)"></span> <span class="circle ' + Color02 + '" id="' + ProductId + 'C2" onclick="ChangeActive(this.id)"></span> <span class="circle ' + Color03 + ' " id="' + ProductId + 'C3" onclick="ChangeActive(this.id)"></span></div> </div> <div class="price"> <span class="price_num" id="' + ProductId + 'PriceNum">' + PriceAfter + '</span> <span class="price_letter" id="' + ProductId + 'PriceLet">' + PriceBefore + ' Only</span> </div> </div> <div class="button"> <div class="button-layer"></div> <button class="btnbtn" onclick="submit(this.id)" id="' + ProductId + '">Add To Bag</button> </div> </div>';
-          Item = document.getElementById('sports').innerHTML;
-          document.getElementById('sports').innerHTML = Item + Code;
-        }
-      });
+        Code = '<div class="product-card"> <div class="logo-cart"> <button class="noner" id="' + ProductId + 'Show" onclick = "View(this.id)"><i class="bi bi-bag"></i> View Product</button></div> <div class="main-images"> <img id="' + ProductId + 'img1" class="blue active xyz class123" src="' + Image01 + '" alt="blue"> <img id="' + ProductId + 'img2" class="pink xyz class123"" src="' + Image02 + '" alt="pink"> <img id="' + ProductId + 'img3" class="yellow xyz class123" src="' + Image03 + '" alt="yellow"></div> <br> <div class="shoe-details"> <span class="shoe_name" id="' + ProductId + 'Name">' + Name + '</span> <p id="' + ProductId + 'Des">' + Short + '</p> <div class="stars">' + TStars.repeat(Stars) + ' </div> </div> <div class="color-price"> <div class="color-option"> <span class="color">Colour:</span> <div class="circles"> <span class=" circle ' + Color01 + ' active" id="' + ProductId + 'C1" onclick="ChangeActive(this.id)"></span> <span class="circle ' + Color02 + '" id="' + ProductId + 'C2" onclick="ChangeActive(this.id)"></span> <span class="circle ' + Color03 + ' " id="' + ProductId + 'C3" onclick="ChangeActive(this.id)"></span></div> </div> <div class="price"> <span class="price_num" id="' + ProductId + 'PriceNum">' + PriceAfter + '</span> <span class="price_letter" id="' + ProductId + 'PriceLet">' + PriceBefore + ' Only</span> </div> </div> <div class="button"> <div class="button-layer"></div> <button class="btnbtn" onclick="submit(this.id)" id="' + ProductId + '">Add To Bag</button> </div> </div>';
+        Item = document.getElementById('sports').innerHTML;
+        document.getElementById('sports').innerHTML = Item + Code;
+      }
     });
-    firebase.database().ref(`/Products/Fashion`).on('value', function (snapshot) {
-      snapshot.forEach(function (childSnapshot) {
-        childKey = childSnapshot.key;
-        childData = childSnapshot.val();
-        if (childKey != "Catagories") {
-          ProductId = childKey;
-          ProductData = childData;
-          Stars = ProductData['Stars'];
-          Name = ProductData['Name'];
-          PriceBefore = ProductData['PriceBefore'];
-          PriceAfter = ProductData['PriceAfter'];
-          Description = ProductData['Description'];
-          Availability = ProductData['Availability'];
-          Total = ProductData['Total'];
-          Logo = ProductData['Logo'];
-          Image01 = ProductData['Image01'];
-          Image02 = ProductData['Image02'];
-          Image03 = ProductData['Image03'];
-          Color01 = ProductData['Color01'];
-          Color02 = ProductData['Color02'];
-          Color03 = ProductData['Color03'];
-          Program = ' <div class="container" id="' + ProductId + 'ShowAbout"><button class="noner" id="' + ProductId + 'ShowA" onclick = "Close(this.id)"><i class="bi bi-x-lg"></i></button><div class="box one"> <div class="details"> <div class="topic">Description</div> <p>' + Description + '</p> <div class="rating">' + TStars.repeat(Stars) + '</div> <div class="price-box"> <div class="price">' + PriceAfter + '</div> </div> </div> <div class="button1"> <button onclick="submit(this.id)" id="' + ProductId + '">Add To Bag</button> </div> </div> <div class="box two"> <div class="image-box"> <div class="image"> <img src="' + Image01 + '" alt=""> </div> <div class="info"> <div class="name">' + Name + '</div> <div class="shipping">FREE SHIPPING</div> </div> </div> </div> </div>'
-          Item = document.getElementById('hoverer').innerHTML;
-          document.getElementById('hoverer').innerHTML = Item + Program;
+  });
+  firebase.database().ref(`/Products/Fashion`).on('value', function (snapshot) {
+    snapshot.forEach(function (childSnapshot) {
+      childKey = childSnapshot.key;
+      childData = childSnapshot.val();
+      if (childKey != "Catagories") {
+        ProductId = childKey;
+        ProductData = childData;
+        Stars = ProductData['Stars'];
+        Name = ProductData['Name'];
+        PriceBefore = ProductData['PriceBefore'];
+        PriceAfter = ProductData['PriceAfter'];
+        Description = ProductData['Description'];
+        Availability = ProductData['Availability'];
+        Total = ProductData['Total'];
+        Logo = ProductData['Logo'];
+        Image01 = ProductData['Image01'];
+        Image02 = ProductData['Image02'];
+        Image03 = ProductData['Image03'];
+        Color01 = ProductData['Color01'];
+        Color02 = ProductData['Color02'];
+        Color03 = ProductData['Color03'];
+        Short = Description.substring(0, 250);
+        Short = Short + '.......'
+        Program = ' <div class="container" id="' + ProductId + 'ShowAbout"><button class="noner" id="' + ProductId + 'ShowA" onclick = "Close(this.id)"><i class="bi bi-x-lg"></i></button><div class="box one"> <div class="details"> <div class="topic">Description</div> <p>' + Description + '</p> <div class="rating">' + TStars.repeat(Stars) + '</div> <div class="price-box"> <div class="price">' + PriceAfter + '</div> </div> </div> <div class="button1"> <button onclick="submit(this.id)" id="' + ProductId + '">Add To Bag</button> </div> </div> <div class="box two"> <div class="image-box"> <div class="image"> <img src="' + Image01 + '" alt=""> </div> <div class="info"> <div class="name">' + Name + '</div> <div class="shipping">FREE SHIPPING</div> </div> </div> </div> </div>'
+        Item = document.getElementById('hoverer').innerHTML;
+        document.getElementById('hoverer').innerHTML = Item + Program;
 
-          Code = '<div class="product-card"> <div class="logo-cart"> <button class="noner" id="' + ProductId + 'Show" onclick = "View(this.id)"><i class="bi bi-bag"></i> View Product</button></div><br><br><br> <div class="main-images"> <img id="' + ProductId + 'img1" class="blue active xyz class123" src="' + Image01 + '" alt="blue"> <img id="' + ProductId + 'img2" class="pink xyz class123"" src="' + Image02 + '" alt="pink"> <img id="' + ProductId + 'img3" class="yellow xyz class123" src="' + Image03 + '" alt="yellow"></div><br> <br> <div class="shoe-details"> <span class="shoe_name" id="' + ProductId + 'Name">' + Name + '</span> <p id="' + ProductId + 'Des">' + Description + '</p> <div class="stars">' + TStars.repeat(Stars) + ' </div> </div> <div class="color-price"> <div class="color-option"> <span class="color">Colour:</span> <div class="circles"> <span class=" circle ' + Color01 + ' active" id="' + ProductId + 'C1" onclick="ChangeActive(this.id)"></span> <span class="circle ' + Color02 + '" id="' + ProductId + 'C2" onclick="ChangeActive(this.id)"></span> <span class="circle ' + Color03 + ' " id="' + ProductId + 'C3" onclick="ChangeActive(this.id)"></span></div> </div> <div class="price"> <span class="price_num" id="' + ProductId + 'PriceNum">' + PriceAfter + '</span> <span class="price_letter" id="' + ProductId + 'PriceLet">' + PriceBefore + ' Only</span> </div> </div> <div class="button"> <div class="button-layer"></div> <button class="btnbtn" onclick="submit(this.id)" id="' + ProductId + '">Add To Bag</button> </div> </div>';
-          Item = document.getElementById('fashion').innerHTML;
-          document.getElementById('fashion').innerHTML = Item + Code;
-        }
-      });
+        Code = '<div class="product-card"> <div class="logo-cart"> <button class="noner" id="' + ProductId + 'Show" onclick = "View(this.id)"><i class="bi bi-bag"></i> View Product</button></div><br><br><br> <div class="main-images"> <img id="' + ProductId + 'img1" class="blue active xyz class123" src="' + Image01 + '" alt="blue"> <img id="' + ProductId + 'img2" class="pink xyz class123"" src="' + Image02 + '" alt="pink"> <img id="' + ProductId + 'img3" class="yellow xyz class123" src="' + Image03 + '" alt="yellow"></div><br> <br> <div class="shoe-details"> <span class="shoe_name" id="' + ProductId + 'Name">' + Name + '</span> <p id="' + ProductId + 'Des">' + Short + '</p> <div class="stars">' + TStars.repeat(Stars) + ' </div> </div> <div class="color-price"> <div class="color-option"> <span class="color">Colour:</span> <div class="circles"> <span class=" circle ' + Color01 + ' active" id="' + ProductId + 'C1" onclick="ChangeActive(this.id)"></span> <span class="circle ' + Color02 + '" id="' + ProductId + 'C2" onclick="ChangeActive(this.id)"></span> <span class="circle ' + Color03 + ' " id="' + ProductId + 'C3" onclick="ChangeActive(this.id)"></span></div> </div> <div class="price"> <span class="price_num" id="' + ProductId + 'PriceNum">' + PriceAfter + '</span> <span class="price_letter" id="' + ProductId + 'PriceLet">' + PriceBefore + ' Only</span> </div> </div> <div class="button"> <div class="button-layer"></div> <button class="btnbtn" onclick="submit(this.id)" id="' + ProductId + '">Add To Bag</button> </div> </div>';
+        Item = document.getElementById('fashion').innerHTML;
+        document.getElementById('fashion').innerHTML = Item + Code;
+      }
     });
-  }
+  });
+}
 if (Id != "null") {
   document.getElementById("bag").href = "Bag.html";
 }
