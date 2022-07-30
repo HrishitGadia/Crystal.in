@@ -1,13 +1,21 @@
-var Status;
 
-function Check() {
-   Status = localStorage.getItem('status');
-   if(Status == "Logged In"){
-    document.getElementById("status").innerHTML = "<span class='glyphicon glyphicon-log-in'></span> Logout";
-   }
-   else if(Status == "Logged Out"){
-    document.getElementById("status").innerHTML = "<span class='glyphicon glyphicon-log-in'></span> Sign Up";
-   }
-   console.info('Function Called');
-   console.info(Status);
-}
+function Logout(){
+   firebase.auth().signOut().then(() => {
+     window.alert('User Signed Out');
+     localStorage.setItem('UserId',"null");
+     localStorage.setItem('status',"Logged Out");
+     document.getElementById('out').style.display = 'none';
+     document.getElementById('in').style.display = 'block';
+   }).catch((error) => {
+     window.alert(error);
+   });
+ }
+ Id = localStorage.getItem('UserId');
+ Ans = Id.startsWith("IP's/");
+ console.log(Ans)
+ if(Ans == true){
+   document.getElementById('out').style.display = 'none';
+ }
+ else{
+   document.getElementById('in').style.display = 'none';
+ }
